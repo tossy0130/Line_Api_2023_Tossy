@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>テキストのアニメーション</title>
+    <style>
+        #container_z {
+            position: relative;
+            height: 600px;
+            overflow: hidden;
+            background-image: url(./zikosyokai_01.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-color: rgba(0,0,0,0.2);
+
+        }
+
+        .text-item {
+            width: 1200px;
+            margin: 0 auto;
+            position: absolute;
+            left: 20%;
+            bottom: 0;
+            white-space: nowrap;
+            opacity: 0;
+            animation: end-credits 120s linear infinite;
+        }
+
+        @keyframes end-credits {
+            0% {
+                transform: translateY(100%);
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 1;
+            }
+
+            90% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+        }
+
+        .paused {
+            animation-play-state: paused !important;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container_z" id="container_z">
+        <div class="text-item">
+
+            studio fuwariでは<br /><br />
+            
+            【ママ目線】<br />
+            【お客様目線】<br />
+            
+            を大切にしております。<br /><br />
+            
+            フォトグラファーになったきっかけは<br /><br />
+            
+            【もっと身近に?こんなフォトスタジオや撮影プラン！あったら良いなぁ】<br /><br />
+            
+            の想いからでした<br /><br />
+            
+            長女が産まれる前までは、写真を撮ってもらう事も撮るきっかけも少ない日常でしたが、<br />
+            産まれてからは毎日が記念日で?気づけば手元にあるスマホで撮影していました！<br /><br />
+            
+            そして、気づけば色んなSNSをみて<br />
+            フォトスタジオに行ったり<br />
+            季節の撮絵会へ予約したり<br />
+            フォトグラファーさんと約束しては家族写真を撮ってもらったり、、、<br />
+            ベビーマッサージお教室へ参加したり<br /><br />
+            
+            しかし、どれもこれも<br />
+            私の住む街からは遠方で、まだまだ小さな子どもを連れての外出は大変でした<br /><br />
+            
+            そして、<br />
+            もっとこんな風に撮影してほしい！<br />
+            もっとこんなプランだったらまた来れるのに！と、<br /><br />
+            
+            【ママ目線】と【お客様目線】から<br />
+            感じたことを財産に<br />
+            studio fuwariの【撮影プラン】【お家スタジオ】となっております<br /><br />
+            
+            同じくママのみなさん！<br />
+            リアルな【ママ目線】【お客様目線】<br />
+            を兼ね備えているstudio fuwariのお客様からのご意見から<br /><br />
+            
+            もっともっと?皆さんへ身近な<br />
+            studio fuwariでありたいと思います<br /><br />
+            
+            貴重なご意見お待ちしております?<br /><br />
+            
+            お子さんの【可愛い??瞬間】って<br /><br />
+            
+            【え？今？】って時ありませんか？<br /><br />
+            
+            そんな時！すぐ出せて<br />
+            すぐカシャ！って<br />
+            写真が撮れるあなたの身近な【スマホ】<br /><br />
+            
+            【スマホ】でカシャって<br />
+            我が子を撮影する【音】<br /><br />
+            
+            ママパパのその身近な【距離感】<br /><br />
+            
+            お子様にとって見たことある【存在】<br /><br />
+            
+            の【スマホ】で撮影することにより<br /><br />
+            
+            撮影したいお子様の<br />
+            【その子らしさ】【笑顔】を引き出し?<br /><br />
+            
+            【親近感】のあるフォトグラファーとしてお仕事したい！<br /><br />
+            
+            という想いから始めました！<br /><br />
+            
+            また親近感のあるご家族さまの身近な<br />
+            【親しみやすい】フォトグラファーとして<br />
+            
+            【また会いたい】存在になれたら嬉しいです?
+
+        </div>
+       
+        <!-- 必要なだけテキストを追加 -->
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            var animationPaused = false;
+
+            // アニメーションの開始
+            startAnimation();
+
+            // クリックイベントの処理
+            $("#container_z").on("click", function () {
+                if (animationPaused) {
+                    resumeAnimation();
+                } else {
+                    pauseAnimation();
+                }
+            });
+
+            function startAnimation() {
+                $(".text-item").each(function (index) {
+                    var delay = index * 4; // テキストごとにアニメーションの開始タイミングをずらすための遅延時間
+                    $(this).css("animation-delay", delay + "s");
+                });
+            }
+
+            function pauseAnimation() {
+                $(".text-item").addClass("paused");
+                animationPaused = true;
+            }
+
+            function resumeAnimation() {
+                $(".text-item").removeClass("paused");
+                animationPaused = false;
+            }
+        });
+    </script>
+</body>
+
+</html>
