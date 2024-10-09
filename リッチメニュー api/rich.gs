@@ -1,5 +1,5 @@
 const bot = new LineBotSdk.client(
-  "1isyW5pQI5CXwliydHrfh+fHCcU63Z/KurLfPq66UeAu+ZLoGDWXDQeVFYByrcVJqO/MabwhENv4JsGB/S5zaJKTI8ablr/KpCU8D08k4uuPWyrT3haE1rdQ4n6jI8acumPdXjzkw2AIsdQy7a46+QdB04t89/1O/w1cDnyilFU="
+  "line api key"
 );
 
 //==============================================================================
